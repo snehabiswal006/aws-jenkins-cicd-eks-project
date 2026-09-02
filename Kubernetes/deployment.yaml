@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: react-eks-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: react-eks-app
+
+  template:
+    metadata:
+      labels:
+        app: react-eks-app
+
+    spec:
+      containers:
+      - name: react-eks-app
+        image: 626230557743.dkr.ecr.ap-south-1.amazonaws.com/react-eks-app:latest
+        ports:
+        - containerPort: 80
